@@ -125,8 +125,8 @@ Examples:
       })
     })
 
-    // Apply authentication to all /mcp routes
-    app.use('/mcp', authenticateToken)
+    // Authentication disabled: /mcp routes are now public
+    // app.use('/mcp', authenticateToken)
 
     // Map to store transports by session ID
     const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {}
@@ -219,10 +219,10 @@ Examples:
       console.log(`MCP Server listening on port ${port}`)
       console.log(`Endpoint: http://0.0.0.0:${port}/mcp`)
       console.log(`Health check: http://0.0.0.0:${port}/health`)
-      console.log(`Authentication: Bearer token required`)
-      if (options.authToken) {
-        console.log(`Using provided auth token`)
-      }
+      //console.log(`Authentication: Bearer token required`)
+      //if (options.authToken) {
+      //  console.log(`Using provided auth token`)
+      //}
     })
 
     // Return a dummy server for compatibility

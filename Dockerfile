@@ -32,5 +32,9 @@ COPY --from=builder /usr/local/bin/notion-mcp-server /usr/local/bin/notion-mcp-s
 # Set default environment variables
 ENV OPENAPI_MCP_HEADERS="{}"
 
-# Set entrypoint
-ENTRYPOINT ["notion-mcp-server"]
+
+# Set entrypoint to use HTTP transport and Cloud Run port
+ENTRYPOINT ["notion-mcp-server", "--transport", "http", "--port", "8080"]
+
+# Expose the port for Cloud Run (default 8080)
+EXPOSE 8080
